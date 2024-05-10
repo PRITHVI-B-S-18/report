@@ -1,0 +1,152 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>List</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        
+<div>
+    <style>
+      /* pop up styling */
+
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+      }
+
+      /* Button used to open the contact form - fixed at the bottom of the page */
+      .open-button {
+        background-color: #555;
+        color: white;
+        padding: 16px 20px;
+        border: none;
+        cursor: pointer;
+        opacity: 0.8;
+        position: fixed;
+        bottom: 23px;
+        right: 28px;
+        width: 280px;
+      }
+
+      /* The popup form - hidden by default */
+      .form-popup {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        right: 15px;
+        border: 3px solid #f1f1f1;
+        z-index: 9;
+      }
+
+      /* Add styles to the form container */
+      .form-container {
+        max-width: 300px;
+        padding: 10px;
+        background-color: white;
+      }
+
+      /* Full-width input fields */
+      .form-container input[type="text"],
+      .form-container input[type="password"] {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        border: none;
+        background: #f1f1f1;
+      }
+
+      /* When the inputs get focus, do something */
+      .form-container input[type="text"]:focus,
+      .form-container input[type="password"]:focus {
+        background-color: #ddd;
+        outline: none;
+      }
+
+      /* Set a style for the submit/login button */
+      .form-container .btn {
+        background-color: #04aa6d;
+        color: white;
+        padding: 16px 20px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom: 10px;
+        opacity: 0.8;
+      }
+
+      /* Add a red background color to the cancel button */
+      .form-container .cancel {
+        background-color: red;
+      }
+
+      /* Add some hover effects to buttons */
+      .form-container .btn:hover,
+      .open-button:hover {
+        opacity: 1;
+      }
+
+      /* table styling */
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        border: 1px solid #ddd;
+      }
+
+      th,
+      td {
+        text-align: center;
+        padding: 8px;
+        border: 1px solid #ddd;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+    </style>
+   
+    <div>
+    <h3 style="padding-left: 5%"> MENTOR LIST </h3>
+    <div style="overflow-x: auto; padding-left: 5%; padding-right: 5%">
+      <table>
+        <tr>
+          <th>MENTOR ID</th>
+          <th>DEPARTMENTS</th>
+          <th>MENTOR NAMES</th>
+          <th>BATCH</th>
+          <th>STUDENTS</th>
+        </tr>
+        {% for list in lists%}
+        <tr>
+        {% comment %} <a href="{% url "students" pk=list.pk %}"> {% endcomment %}
+          
+            <td> <a href="{% url "students" pk=list.pk %}">{{list.id}} </a></td>
+
+            <td>{{list.m_dept}}</td>
+            <td>{{list.m_name}}</td>
+            <td>{{list.m_batch}}</td>
+            <td>{{list.m_students}}</td>
+          
+        {% comment %} </a> {% endcomment %}
+      </tr>
+        
+        {%endfor%}
+      </table>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+        
+        <script src="" async defer></script>
+    </body>
+</html>
